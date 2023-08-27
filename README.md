@@ -86,14 +86,14 @@ Assignment programming explain Data codes of file.path.Sonja.JS.R
   }
 #  paths <- file.path(paths, "data")
 #  for (name in names) {
-    found <- FALSE
-    for (p in paths) {
-      tmp_env <- if (overwrite) 
+#    found <- FALSE
+#    for (p in paths) {
+ #     tmp_env <- if (overwrite) 
         envir
-      else new.env()
-      if (file_test("-f", file.path(p, "Rdata.rds"))) {
-        rds <- readRDS(file.path(p, "Rdata.rds"))
-        if (name %in% names(rds)) {
+ #     else new.env()
+  #    if (file_test("-f", file.path(p, "Rdata.rds"))) {
+  #      rds <- readRDS(file.path(p, "Rdata.rds"))
+  #      if (name %in% names(rds)) {
           found <- TRUE
           if (verbose) 
             message(sprintf("name=%s:\t found in Rdata.rds", 
