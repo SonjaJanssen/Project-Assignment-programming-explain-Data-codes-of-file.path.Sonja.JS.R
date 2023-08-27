@@ -1,11 +1,11 @@
 # Assignment programming explain Data codes of file.path.Sonja.JS.R
  R.programming Assignment file.path
 Assignment programming explain Data codes of file.path.Sonja.JS.R
-#   Lectures: By Professor Jeffrey Leek
-#   University: Johns Hopkins University Bloomberg School of Public Health
-#   Codes:  by SonjaJanssen-Sahebzad
-#   Notes: Created with R 4.2.2 for Windows
-#   Date:  1 April 2023
+##   Lectures: By Professor Jeffrey Leek
+##   University: Johns Hopkins University Bloomberg School of Public Health
+##   Codes:  by SonjaJanssen-Sahebzad
+##   Notes: Created with R 4.2.2 for Windows
+##   Date:  1 April 2023
 
 #*******************************************************************************
 ## Assignment programming: explain data codes in file.path
@@ -126,14 +126,14 @@ Assignment programming explain Data codes of file.path.Sonja.JS.R
       else {
         files <- list.files(p, full.names = TRUE)
       }
- #     files <- files[grep(name, files, fixed = TRUE)]
+ ##     files <- files[grep(name, files, fixed = TRUE)]
       if (length(files) > 1L) {
         o <- match(fileExt(files), dataExts, nomatch = 100L)
         paths0 <- dirname(files)
         paths0 <- factor(paths0, levels = unique(paths0))
         files <- files[order(paths0, o)]
       }
- #     if (length(files)) {
+ ##     if (length(files)) {
         for (file in files) {
           if (verbose) 
             message("name=", name, ":\t file= ...", .Platform$file.sep, 
@@ -144,9 +144,9 @@ Assignment programming explain Data codes of file.path.Sonja.JS.R
             found <- FALSE
           else {
   ##          found <- TRUE
-  # #         zfile <- file
+  ##         zfile <- file
   ##          zipname <- file.path(dirname(file), "Rdata.zip")
-  ##          if (file.exists(zipname)) {
+              if (file.exists(zipname)) {
               Rdatadir <- tempfile("Rdata")
               dir.create(Rdatadir, showWarnings = FALSE)
               topic <- basename(file)
