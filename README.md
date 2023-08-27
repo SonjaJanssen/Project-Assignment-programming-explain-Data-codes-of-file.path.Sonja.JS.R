@@ -16,36 +16,36 @@ Assignment programming explain Data codes of file.path.Sonja.JS.R
 #*******************************************************************************
 # Explanation of the codes by Sonja Janssen-Sahebzad
 
-# function (..., list = character(), package = NULL, lib.loc = NULL, 
+## function (..., list = character(), package = NULL, lib.loc = NULL, 
           verbose = getOption("verbose"), envir = .GlobalEnv, overwrite = TRUE) 
 {
- # fileExt <- function(x) {
+ ## fileExt <- function(x) {
     db <- grepl("\\.[^.]+\\.(gz|bz2|xz)$", x)
     ans <- sub(".*\\.", "", x)
     ans[db] <- sub(".*\\.([^.]+\\.)(gz|bz2|xz)$", "\\1\\2", 
                    x[db])
     ans
   }
-#  my_read_table <- function(...) {
+##  my_read_table <- function(...) {
     lcc <- Sys.getlocale("LC_COLLATE")
     on.exit(Sys.setlocale("LC_COLLATE", lcc))
     Sys.setlocale("LC_COLLATE", "C")
     read.table(...)
   }
-#  stopifnot(is.character(list))
+##  stopifnot(is.character(list))
   names <- c(as.character(substitute(list(...))[-1L]), list)
   if (!is.null(package)) {
     if (!is.character(package)) 
       stop("'package' must be a character vector or NULL")
   }
-#  paths <- find.package(package, lib.loc, verbose = verbose)
+##  paths <- find.package(package, lib.loc, verbose = verbose)
   if (is.null(lib.loc)) 
     paths <- c(path.package(package, TRUE), if (!length(package)) getwd(), 
                paths)
-#  paths <- unique(normalizePath(paths[file.exists(paths)]))
-#  paths <- paths[dir.exists(file.path(paths, "data"))]
-#  dataExts <- tools:::.make_file_exts("data")
-#  if (length(names) == 0L) {
+##  paths <- unique(normalizePath(paths[file.exists(paths)]))
+##  paths <- paths[dir.exists(file.path(paths, "data"))]
+##  dataExts <- tools:::.make_file_exts("data")
+##  if (length(names) == 0L) {
     db <- matrix(character(), nrow = 0L, ncol = 4L)
     for (path in paths) {
       entries <- NULL
@@ -74,9 +74,9 @@ Assignment programming explain Data codes of file.path.Sonja.JS.R
                               sQuote(packageName)), domain = NA, call. = FALSE)
       }
     }
-  #  colnames(db) <- c("Package", "LibPath", "Item", "Title")
-  #  footer <- if (missing(package)) 
-  #    paste0("Use ", sQuote(paste("data(package =", ".packages(all.available = TRUE))")), 
+  ##  colnames(db) <- c("Package", "LibPath", "Item", "Title")
+  ##  footer <- if (missing(package)) 
+  ##    paste0("Use ", sQuote(paste("data(package =", ".packages(all.available = TRUE))")), 
              "\n", "to list the data sets in all *available* packages.")
     else NULL
     y <- list(title = "Data sets", header = NULL, results = db, 
@@ -84,16 +84,16 @@ Assignment programming explain Data codes of file.path.Sonja.JS.R
     class(y) <- "packageIQR"
     return(y)
   }
-#  paths <- file.path(paths, "data")
-#  for (name in names) {
-#    found <- FALSE
-#    for (p in paths) {
- #     tmp_env <- if (overwrite) 
+##  paths <- file.path(paths, "data")
+##  for (name in names) {
+    found <- FALSE
+    for (p in paths) {
+     tmp_env <- if (overwrite) 
         envir
- #     else new.env()
-  #    if (file_test("-f", file.path(p, "Rdata.rds"))) {
-  #      rds <- readRDS(file.path(p, "Rdata.rds"))
-  #      if (name %in% names(rds)) {
+ ##     else new.env()
+  ##    if (file_test("-f", file.path(p, "Rdata.rds"))) {
+        rds <- readRDS(file.path(p, "Rdata.rds"))
+        if (name %in% names(rds)) {
           found <- TRUE
           if (verbose) 
             message(sprintf("name=%s:\t found in Rdata.rds", 
@@ -143,48 +143,48 @@ Assignment programming explain Data codes of file.path.Sonja.JS.R
           if (basename(file) != paste0(name, ".", ext)) 
             found <- FALSE
           else {
-  #          found <- TRUE
-  #          zfile <- file
-  #          zipname <- file.path(dirname(file), "Rdata.zip")
-  #          if (file.exists(zipname)) {
-  #            Rdatadir <- tempfile("Rdata")
-  #            dir.create(Rdatadir, showWarnings = FALSE)
-  #            topic <- basename(file)
-  #            rc <- .External(C_unzip, zipname, topic, 
+  ##          found <- TRUE
+  # #         zfile <- file
+  ##          zipname <- file.path(dirname(file), "Rdata.zip")
+  ##          if (file.exists(zipname)) {
+              Rdatadir <- tempfile("Rdata")
+              dir.create(Rdatadir, showWarnings = FALSE)
+              topic <- basename(file)
+              rc <- .External(C_unzip, zipname, topic, 
                               Rdatadir, FALSE, TRUE, FALSE, FALSE)
-   #           if (rc == 0L) 
+             if (rc == 0L) 
                 zfile <- file.path(Rdatadir, topic)
             }
-  #        if (zfile != file) 
+          if (zfile != file) 
               on.exit(unlink(zfile))
             switch(ext, R = , r = {
               library("utils")
               sys.source(zfile, chdir = TRUE, envir = tmp_env)
             }, RData = , rdata = , rda = load(zfile, 
                                               envir = tmp_env), TXT = , txt = , tab = , 
-  #          tab.gz = , tab.bz2 = , tab.xz = , txt.gz = , 
-  #          txt.bz2 = , txt.xz = assign(name, my_read_table(zfile, 
-                                                            header = TRUE, as.is = FALSE), envir = tmp_env), 
-  #          CSV = , csv = , csv.gz = , csv.bz2 = , 
-  #          csv.xz = assign(name, my_read_table(zfile, 
+  ##          tab.gz = , tab.bz2 = , tab.xz = , txt.gz = , 
+  ##         txt.bz2 = , txt.xz = assign(name, my_read_table(zfile, 
+                                               header = TRUE, as.is = FALSE), envir = tmp_env), 
+  ##          CSV = , csv = , csv.gz = , csv.bz2 = , 
+           csv.xz = assign(name, my_read_table(zfile, 
                                                 header = TRUE, sep = ";", as.is = FALSE), 
                             envir = tmp_env), found <- FALSE)
           }
-  #        if (found) 
+          if (found) 
             break
         }
-  #      if (verbose) 
+        if (verbose) 
           message(if (!found) 
             "*NOT* ", "found", domain = NA)
       }
-  #    if (found) 
+      if (found) 
         break
     }
-  #  if (!found) {
+   if (!found) {
       warning(gettextf("data set %s not found", sQuote(name)), 
               domain = NA)
     }
-   # else if (!overwrite) {
+  ## else if (!overwrite) {
       for (o in ls(envir = tmp_env, all.names = TRUE)) {
         if (exists(o, envir = envir, inherits = FALSE)) 
           warning(gettextf("an object named %s already exists and will not be overwritten", 
@@ -192,7 +192,7 @@ Assignment programming explain Data codes of file.path.Sonja.JS.R
         else assign(o, get(o, envir = tmp_env, inherits = FALSE), 
                     envir = envir)
       }
-#      rm(tmp_env)
+##      rm(tmp_env)
     }
   }
-#  invisible(names)
+##  invisible(names)
