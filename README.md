@@ -85,7 +85,7 @@ Assignment programming explain Data codes of file.path.Sonja.JS.R
     return(y)
   }
 #  paths <- file.path(paths, "data")
-  for (name in names) {
+#  for (name in names) {
     found <- FALSE
     for (p in paths) {
       tmp_env <- if (overwrite) 
