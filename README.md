@@ -192,7 +192,7 @@ Assignment programming explain Data codes of file.path.Sonja.JS.R
         else assign(o, get(o, envir = tmp_env, inherits = FALSE), 
                     envir = envir)
       }
-##      rm(tmp_env)
+      rm(tmp_env)
     }
   }
 ##  invisible(names)
