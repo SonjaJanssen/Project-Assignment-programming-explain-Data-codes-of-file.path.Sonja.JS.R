@@ -143,9 +143,9 @@ Assignment programming explain Data codes of file.path.Sonja.JS.R
           if (basename(file) != paste0(name, ".", ext)) 
             found <- FALSE
           else {
-  ##          found <- TRUE
-  ##         zfile <- file
-  ##          zipname <- file.path(dirname(file), "Rdata.zip")
+           found <- TRUE
+          zfile <- file
+          zipname <- file.path(dirname(file), "Rdata.zip")
               if (file.exists(zipname)) {
               Rdatadir <- tempfile("Rdata")
               dir.create(Rdatadir, showWarnings = FALSE)
