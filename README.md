@@ -45,7 +45,7 @@ Assignment programming explain Data codes of file.path.Sonja.JS.R
 ###  paths <- unique(normalizePath(paths[file.exists(paths)]))
 ###  paths <- paths[dir.exists(file.path(paths, "data"))]
 ###  dataExts <- tools:::.make_file_exts("data")
-    if (length(names) == 0L) {
+###    if (length(names) == 0L) {
     db <- matrix(character(), nrow = 0L, ncol = 4L)
     for (path in paths) {
       entries <- NULL
