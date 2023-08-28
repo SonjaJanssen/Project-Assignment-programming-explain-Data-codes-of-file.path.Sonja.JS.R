@@ -84,13 +84,13 @@ Assignment programming explain Data codes of file.path.Sonja.JS.R
     class(y) <- "packageIQR"
     return(y)
   }
-###  paths <- file.path(paths, "data")
+  paths <- file.path(paths, "data")
     for (name in names) {
     found <- FALSE
     for (p in paths) {
      tmp_env <- if (overwrite) 
         envir
- ###     else new.env()
+      else new.env()
      if (file_test("-f", file.path(p, "Rdata.rds"))) {
         rds <- readRDS(file.path(p, "Rdata.rds"))
         if (name %in% names(rds)) {
@@ -133,7 +133,7 @@ Assignment programming explain Data codes of file.path.Sonja.JS.R
         paths0 <- factor(paths0, levels = unique(paths0))
         files <- files[order(paths0, o)]
       }
- ###     if (length(files)) {
+      if (length(files)) {
         for (file in files) {
           if (verbose) 
             message("name=", name, ":\t file= ...", .Platform$file.sep, 
@@ -145,7 +145,7 @@ Assignment programming explain Data codes of file.path.Sonja.JS.R
           else {
            found <- TRUE
           zfile <- file
-    ###      zipname <- file.path(dirname(file), "Rdata.zip")
+          zipname <- file.path(dirname(file), "Rdata.zip")
               if (file.exists(zipname)) {
               Rdatadir <- tempfile("Rdata")
               dir.create(Rdatadir, showWarnings = FALSE)
@@ -155,7 +155,7 @@ Assignment programming explain Data codes of file.path.Sonja.JS.R
              if (rc == 0L) 
                 zfile <- file.path(Rdatadir, topic)
             }
-    ###      if (zfile != file) 
+          if (zfile != file) 
               on.exit(unlink(zfile))
             switch(ext, R = , r = {
               library("utils")
