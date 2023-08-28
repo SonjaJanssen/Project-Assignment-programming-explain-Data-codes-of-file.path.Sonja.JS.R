@@ -1,20 +1,20 @@
-# Assignment programming explain Data codes of file.path.Sonja.JS.R
+# Project codes of file.path.Sonja.JS.R
  R.programming Assignment file.path
-Assignment programming explain Data codes of file.path.Sonja.JS.R
+Explain Data codes of file.path.Sonja.JS.R
 ###   Lectures: By Professor Jeffrey Leek
 ###   University: Johns Hopkins University Bloomberg School of Public Health
-###   Codes:  by SonjaJanssen-Sahebzad
-###   Notes: Created with R 4.2.2 for Windows
+###   Codes created by SonjaJanssen-Sahebzad
+###   Notes: Created with R 4.2.2 for Windows with RStudio
 ###   Date:  1 April 2023
 
 #*******************************************************************************
-## Assignment programming: explain data codes in file.path
+## load and store data
 ### dataDir <- file.path(path, "data")
 ### paths <- file.path(paths, "data")
 ###  if (file_test("-f", file.path(p, "Rdata.rds"))) {
 ###  rds <- readRDS(file.path(p, "Rdata.rds"))
 #*******************************************************************************
-### Explanation of the codes by Sonja Janssen-Sahebzad
+### Explanation of the codes step by step by Sonja Janssen-Sahebzad
 
 ### function (..., list = character(), package = NULL, lib.loc = NULL, 
           verbose = getOption("verbose"), envir = .GlobalEnv, overwrite = TRUE) 
