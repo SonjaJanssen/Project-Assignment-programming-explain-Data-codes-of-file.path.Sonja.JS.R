@@ -84,7 +84,7 @@ Assignment programming explain Data codes of file.path.Sonja.JS.R
     class(y) <- "packageIQR"
     return(y)
   }
-  paths <- file.path(paths, "data")
+###  paths <- file.path(paths, "data")
     for (name in names) {
     found <- FALSE
     for (p in paths) {
