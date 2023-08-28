@@ -8,7 +8,7 @@ Explain Data codes of file.path.Sonja.JS.R
 ###   Date:  1 April 2023
 
 #*******************************************************************************
-## load and store data
+### Load and store data
 ### dataDir <- file.path(path, "data")
 ### paths <- file.path(paths, "data")
 ###  if (file_test("-f", file.path(p, "Rdata.rds"))) {
