@@ -45,7 +45,7 @@ Assignment programming explain Data codes of file.path.Sonja.JS.R
 ###  paths <- unique(normalizePath(paths[file.exists(paths)]))
 ###  paths <- paths[dir.exists(file.path(paths, "data"))]
 ###  dataExts <- tools:::.make_file_exts("data")
-###  if (length(names) == 0L) {
+    if (length(names) == 0L) {
     db <- matrix(character(), nrow = 0L, ncol = 4L)
     for (path in paths) {
       entries <- NULL
@@ -76,7 +76,7 @@ Assignment programming explain Data codes of file.path.Sonja.JS.R
     }
   ###  colnames(db) <- c("Package", "LibPath", "Item", "Title")
   ###  footer <- if (missing(package)) 
-  ###    paste0("Use ", sQuote(paste("data(package =", ".packages(all.available = TRUE))")), 
+      paste0("Use ", sQuote(paste("data(package =", ".packages(all.available = TRUE))")), 
              "\n", "to list the data sets in all *available* packages.")
     else NULL
     y <- list(title = "Data sets", header = NULL, results = db, 
@@ -91,7 +91,7 @@ Assignment programming explain Data codes of file.path.Sonja.JS.R
      tmp_env <- if (overwrite) 
         envir
  ###     else new.env()
- ###    if (file_test("-f", file.path(p, "Rdata.rds"))) {
+     if (file_test("-f", file.path(p, "Rdata.rds"))) {
         rds <- readRDS(file.path(p, "Rdata.rds"))
         if (name %in% names(rds)) {
           found <- TRUE
