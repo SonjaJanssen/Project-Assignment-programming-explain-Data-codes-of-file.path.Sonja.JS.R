@@ -3,7 +3,7 @@
 Explain Data codes of file.path.Sonja.JS.R
 ###   Lectures: By Professor Jeffrey Leek
 ###   University: Johns Hopkins University Bloomberg School of Public Health
-###   Codes created by SonjaJanssen-Sahebzad
+###   Codes created by Sonja Janssen-Sahebzad
 ###   Notes: Created with R 4.2.2 for Windows with RStudio
 ###   Date:  1 April 2023
 
