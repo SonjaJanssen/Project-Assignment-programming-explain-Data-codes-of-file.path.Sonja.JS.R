@@ -1,4 +1,4 @@
-# Project codes of file.path
+# Project program codes for file.path
  R.programming Assignment file.path
 Explain Data codes of file.path.Sonja.JS.R
 ###   Lectures: By Professor Jeffrey Leek
