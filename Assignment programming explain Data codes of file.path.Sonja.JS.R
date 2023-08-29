@@ -1,4 +1,4 @@
-## Assignment programming explain Data codes of file.path.Sonja.JS.R
+## Project Assignment programming explain Data codes of file.path.Sonja.JS.R
 #   Lectures: By Professor Jeffrey Leek
 #   University: Johns Hopkins University Bloomberg School of Public Health
 #   Codes:  by SonjaJanssen-Sahebzad
