@@ -14,7 +14,6 @@
     if (file_test("-f", file.path(p, "Rdata.rds"))) {
     rds <- readRDS(file.path(p, "Rdata.rds"))
 
-#*******************************************************************************
 ### Explanation of the codes step by step by Sonja Janssen-Sahebzad
 
 ### function (..., list = character(), package = NULL, lib.loc = NULL, 
@@ -73,18 +72,18 @@
                                 entries))
         else warning(gettextf("data index for package %s is invalid and will be ignored", 
                               sQuote(packageName)), domain = NA, call. = FALSE)
+       }
       }
-    }
   ###  colnames(db) <- c("Package", "LibPath", "Item", "Title")
   ###  footer <- if (missing(package)) 
-      paste0("Use ", sQuote(paste("data(package =", ".packages(all.available = TRUE))")), 
+       paste0("Use ", sQuote(paste("data(package =", ".packages(all.available = TRUE))")), 
              "\n", "to list the data sets in all *available* packages.")
-    else NULL
-    y <- list(title = "Data sets", header = NULL, results = db, 
+      else NULL
+      y <- list(title = "Data sets", header = NULL, results = db, 
               footer = footer)
-    class(y) <- "packageIQR"
-    return(y)
-  }
+      class(y) <- "packageIQR"
+      return(y)
+     }
 ###  paths <- file.path(paths, "data")
 ###    for (name in names) {
     found <- FALSE
@@ -128,14 +127,14 @@
         files <- list.files(p, full.names = TRUE)
       }
  ###     files <- files[grep(name, files, fixed = TRUE)]
-      if (length(files) > 1L) {
-        o <- match(fileExt(files), dataExts, nomatch = 100L)
-        paths0 <- dirname(files)
-        paths0 <- factor(paths0, levels = unique(paths0))
-        files <- files[order(paths0, o)]
-      }
-      if (length(files)) {
-        for (file in files) {
+         if (length(files) > 1L) {
+         o <- match(fileExt(files), dataExts, nomatch = 100L)
+         paths0 <- dirname(files)
+         paths0 <- factor(paths0, levels = unique(paths0))
+         files <- files[order(paths0, o)]
+       }
+        if (length(files)) {
+         for (file in files) {
           if (verbose) 
             message("name=", name, ":\t file= ...", .Platform$file.sep, 
                     basename(file), "::\t", appendLF = FALSE, 
