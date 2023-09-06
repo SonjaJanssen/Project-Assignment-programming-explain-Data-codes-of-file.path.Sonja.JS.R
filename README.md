@@ -8,8 +8,8 @@
 ###   Date:  1 April 2023
 
 #*******************************************************************************
-### Load and store data
- dataDir <- file.path(path, "data")
+## Load and store data
+### dataDir <- file.path(path, "data")
  paths <- file.path(paths, "data")
  if (file_test("-f", file.path(p, "Rdata.rds"))) {
  rds <- readRDS(file.path(p, "Rdata.rds"))
