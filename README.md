@@ -32,22 +32,22 @@
     Sys.setlocale("LC_COLLATE", "C")
     read.table(...)
   }
-  stopifnot(is.character(list))
+###  stopifnot(is.character(list))
   names <- c(as.character(substitute(list(...))[-1L]), list)
   if (!is.null(package)) {
     if (!is.character(package)) 
       stop("'package' must be a character vector or NULL")
   }
 ###  paths <- find.package(package, lib.loc, verbose = verbose)
-  if (is.null(lib.loc)) 
-    paths <- c(path.package(package, TRUE), if (!length(package)) getwd(), 
+     if (is.null(lib.loc)) 
+     paths <- c(path.package(package, TRUE), if (!length(package)) getwd(), 
                paths)
 ###  paths <- unique(normalizePath(paths[file.exists(paths)]))
 ###  paths <- paths[dir.exists(file.path(paths, "data"))]
 ###  dataExts <- tools:::.make_file_exts("data")
-###    if (length(names) == 0L) {
-    db <- matrix(character(), nrow = 0L, ncol = 4L)
-    for (path in paths) {
+###  if (length(names) == 0L) {
+     db <- matrix(character(), nrow = 0L, ncol = 4L)
+     for (path in paths) {
       entries <- NULL
       packageName <- if (file_test("-f", file.path(path, 
                                                    "DESCRIPTION"))) 
@@ -78,16 +78,16 @@
   ###  footer <- if (missing(package)) 
        paste0("Use ", sQuote(paste("data(package =", ".packages(all.available = TRUE))")), 
              "\n", "to list the data sets in all *available* packages.")
-      else NULL
-      y <- list(title = "Data sets", header = NULL, results = db, 
+       else NULL
+       y <- list(title = "Data sets", header = NULL, results = db, 
               footer = footer)
-      class(y) <- "packageIQR"
-      return(y)
-     }
+       class(y) <- "packageIQR"
+       return(y)
+      }
 ###  paths <- file.path(paths, "data")
-###    for (name in names) {
-    found <- FALSE
-    for (p in paths) {
+###  for (name in names) {
+     found <- FALSE
+     for (p in paths) {
      tmp_env <- if (overwrite) 
         envir
       else new.env()
