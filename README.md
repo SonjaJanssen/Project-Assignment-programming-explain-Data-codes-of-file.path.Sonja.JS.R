@@ -17,15 +17,15 @@
 ### Explanation of the codes step by step by Sonja Janssen-Sahebzad
 
 ### function (..., list = character(), package = NULL, lib.loc = NULL, 
-          verbose = getOption("verbose"), envir = .GlobalEnv, overwrite = TRUE) 
-{
+          verbose = getOption("verbose"), envir = .GlobalEnv, overwrite = TRUE)   
+    {
 ### fileExt <- function(x) {
     db <- grepl("\\.[^.]+\\.(gz|bz2|xz)$", x)
     ans <- sub(".*\\.", "", x)
     ans[db] <- sub(".*\\.([^.]+\\.)(gz|bz2|xz)$", "\\1\\2", 
                    x[db])
     ans
-  }
+   }
 ###  my_read_table <- function(...) {
     lcc <- Sys.getlocale("LC_COLLATE")
     on.exit(Sys.setlocale("LC_COLLATE", lcc))
