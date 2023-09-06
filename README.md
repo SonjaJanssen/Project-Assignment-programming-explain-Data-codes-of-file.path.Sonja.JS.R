@@ -33,11 +33,11 @@
     read.table(...)
   }
 ###  stopifnot(is.character(list))
-  names <- c(as.character(substitute(list(...))[-1L]), list)
-  if (!is.null(package)) {
-    if (!is.character(package)) 
+     names <- c(as.character(substitute(list(...))[-1L]), list)
+     if (!is.null(package)) {
+     if (!is.character(package)) 
       stop("'package' must be a character vector or NULL")
-  }
+    }
 ###  paths <- find.package(package, lib.loc, verbose = verbose)
      if (is.null(lib.loc)) 
      paths <- c(path.package(package, TRUE), if (!length(package)) getwd(), 
