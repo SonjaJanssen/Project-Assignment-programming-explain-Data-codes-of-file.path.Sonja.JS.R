@@ -162,8 +162,8 @@
               sys.source(zfile, chdir = TRUE, envir = tmp_env)
             }, RData = , rdata = , rda = load(zfile, 
                                               envir = tmp_env), TXT = , txt = , tab = , 
-  ### tab.gz = , tab.bz2 = , tab.xz = , txt.gz = , 
-  ### txt.bz2 = , txt.xz = assign(name, my_read_table(zfile, 
+               tab.gz = , tab.bz2 = , tab.xz = , txt.gz = , 
+               txt.bz2 = , txt.xz = assign(name, my_read_table(zfile, 
                     header = TRUE, as.is = FALSE), envir = tmp_env), 
   ### CSV = , csv = , csv.gz = , csv.bz2 = , 
         csv.xz = assign(name, my_read_table(zfile, 
