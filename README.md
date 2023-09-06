@@ -85,7 +85,7 @@
        return(y)
       }
 ###  paths <- file.path(paths, "data")
-###  for (name in names) {
+     for (name in names) {
      found <- FALSE
      for (p in paths) {
      tmp_env <- if (overwrite) 
@@ -126,7 +126,7 @@
       else {
         files <- list.files(p, full.names = TRUE)
       }
- ###     files <- files[grep(name, files, fixed = TRUE)]
+ ### files <- files[grep(name, files, fixed = TRUE)]
          if (length(files) > 1L) {
          o <- match(fileExt(files), dataExts, nomatch = 100L)
          paths0 <- dirname(files)
@@ -162,12 +162,12 @@
               sys.source(zfile, chdir = TRUE, envir = tmp_env)
             }, RData = , rdata = , rda = load(zfile, 
                                               envir = tmp_env), TXT = , txt = , tab = , 
-  ###          tab.gz = , tab.bz2 = , tab.xz = , txt.gz = , 
-  ###         txt.bz2 = , txt.xz = assign(name, my_read_table(zfile, 
-                                               header = TRUE, as.is = FALSE), envir = tmp_env), 
-  ###          CSV = , csv = , csv.gz = , csv.bz2 = , 
-           csv.xz = assign(name, my_read_table(zfile, 
-                                                header = TRUE, sep = ";", as.is = FALSE), 
+  ### tab.gz = , tab.bz2 = , tab.xz = , txt.gz = , 
+  ### txt.bz2 = , txt.xz = assign(name, my_read_table(zfile, 
+                    header = TRUE, as.is = FALSE), envir = tmp_env), 
+  ### CSV = , csv = , csv.gz = , csv.bz2 = , 
+        csv.xz = assign(name, my_read_table(zfile, 
+                     header = TRUE, sep = ";", as.is = FALSE), 
                             envir = tmp_env), found <- FALSE)
           }
           if (found) 
