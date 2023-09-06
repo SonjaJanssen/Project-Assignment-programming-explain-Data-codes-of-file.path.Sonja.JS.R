@@ -180,7 +180,7 @@
       if (found) 
         break
     }
-   if (!found) {
+      if (!found) {
       warning(gettextf("data set %s not found", sQuote(name)), 
               domain = NA)
     }
