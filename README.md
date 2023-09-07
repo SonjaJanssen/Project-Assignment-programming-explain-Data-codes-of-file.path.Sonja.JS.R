@@ -172,11 +172,11 @@
       }
       if (found) 
         break
-     }
+      }
       if (!found) {
       warning(gettextf("data set %s not found", sQuote(name)), 
               domain = NA)
-     }
+      }
   ### else if (!overwrite) {
       for (o in ls(envir = tmp_env, all.names = TRUE)) {
       if (exists(o, envir = envir, inherits = FALSE)) 
@@ -186,6 +186,6 @@
                     envir = envir)
       }
       rm(tmp_env)
-     }
-   }
-###  invisible(names)
+      }
+    }
+### invisible(names)
