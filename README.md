@@ -159,7 +159,7 @@
                txt.bz2 = , txt.xz = assign(name, my_read_table(zfile, 
                     header = TRUE, as.is = FALSE), envir = tmp_env), 
   ### CSV = , csv = , csv.gz = , csv.bz2 = , 
-        csv.xz = assign(name, my_read_table(zfile, 
+      csv.xz = assign(name, my_read_table(zfile, 
                      header = TRUE, sep = ";", as.is = FALSE), 
                             envir = tmp_env), found <- FALSE)
           }
@@ -172,20 +172,20 @@
       }
       if (found) 
         break
-    }
+     }
       if (!found) {
       warning(gettextf("data set %s not found", sQuote(name)), 
               domain = NA)
-    }
+     }
   ### else if (!overwrite) {
       for (o in ls(envir = tmp_env, all.names = TRUE)) {
-        if (exists(o, envir = envir, inherits = FALSE)) 
+      if (exists(o, envir = envir, inherits = FALSE)) 
           warning(gettextf("an object named %s already exists and will not be overwritten", 
                            sQuote(o)))
         else assign(o, get(o, envir = tmp_env, inherits = FALSE), 
                     envir = envir)
       }
       rm(tmp_env)
-    }
-  }
+     }
+   }
 ###  invisible(names)
