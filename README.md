@@ -48,19 +48,16 @@
      if (length(names) == 0L) {
      db <- matrix(character(), nrow = 0L, ncol = 4L)
      for (path in paths) {
-      entries <- NULL
-      packageName <- if (file_test("-f", file.path(path, 
-                                                   "DESCRIPTION"))) 
-        basename(path)
-      else "."
-      if (file_test("-f", INDEX <- file.path(path, "Meta", 
-                                             "data.rds"))) {
+     entries <- NULL
+     packageName <- if (file_test("-f", file.path(path, "DESCRIPTION"))) 
+         basename(path)
+     else "."
+     if (file_test("-f", INDEX <- file.path(path, "Meta", "data.rds"))) {
         entries <- readRDS(INDEX)
       }
       else {
         dataDir <- file.path(path, "data")
-        entries <- tools::list_files_with_type(dataDir, 
-                                               "data")
+        entries <- tools::list_files_with_type(dataDir, "data")
         if (length(entries)) {
           entries <- unique(tools::file_path_sans_ext(basename(entries)))
           entries <- cbind(entries, "")
@@ -68,8 +65,7 @@
       }
       if (NROW(entries)) {
         if (is.matrix(entries) && ncol(entries) == 2L) 
-          db <- rbind(db, cbind(packageName, dirname(path), 
-                                entries))
+        db <- rbind(db, cbind(packageName, dirname(path), entries))
         else warning(gettextf("data index for package %s is invalid and will be ignored", 
                               sQuote(packageName)), domain = NA, call. = FALSE)
        }
@@ -90,14 +86,13 @@
      for (p in paths) {
      tmp_env <- if (overwrite) 
         envir
-      else new.env()
+     else new.env()
      if (file_test("-f", file.path(p, "Rdata.rds"))) {
         rds <- readRDS(file.path(p, "Rdata.rds"))
         if (name %in% names(rds)) {
-          found <- TRUE
-          if (verbose) 
-            message(sprintf("name=%s:\t found in Rdata.rds", 
-                            name), domain = NA)
+        found <- TRUE
+        if (verbose) 
+          message(sprintf("name=%s:\t found in Rdata.rds", name), domain = NA)
           thispkg <- sub(".*/([^/]*)/data$", "\\1", p)
           thispkg <- sub("_.*$", "", thispkg)
           thispkg <- paste0("package:", thispkg)
@@ -107,17 +102,15 @@
           break
         }
         else if (verbose) 
-          message(sprintf("name=%s:\t NOT found in names() of Rdata.rds, i.e.,\n\t%s\n", 
-                          name, paste(names(rds), collapse = ",")), 
-                  domain = NA)
-      }
+        message(sprintf("name=%s:\t NOT found in names() of Rdata.rds, i.e.,\n\t%s\n", 
+                          name, paste(names(rds), collapse = ",")),  domain = NA)
+        }
       if (file_test("-f", file.path(p, "Rdata.zip"))) {
         warning("zipped data found for package ", sQuote(basename(dirname(p))), 
-                ".\nThat is defunct, so please re-install the package.", 
-                domain = NA)
-        if (file_test("-f", fp <- file.path(p, "filelist"))) 
+                ".\nThat is defunct, so please re-install the package.", domain = NA)
+      if (file_test("-f", fp <- file.path(p, "filelist"))) 
           files <- file.path(p, scan(fp, what = "", quiet = TRUE))
-        else {
+      else {
           warning(gettextf("file 'filelist' is missing for directory %s", 
                            sQuote(p)), domain = NA)
           next
